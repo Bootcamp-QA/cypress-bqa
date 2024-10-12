@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,21 +11,27 @@
             background-color: #f4f4f4;
             padding: 20px;
         }
-        h1, h2 {
+
+        h1,
+        h2 {
             color: #333;
         }
+
         a {
             display: block;
             margin: 5px 0;
             color: #007BFF;
             text-decoration: none;
         }
+
         a:hover {
             text-decoration: underline;
         }
+
         .category {
             margin-bottom: 30px;
         }
+
         .example {
             background-color: #e9ecef;
             padding: 10px;
@@ -33,6 +40,7 @@
         }
     </style>
 </head>
+
 <body>
     <h1>Documentación de Cypress</h1>
 
@@ -43,13 +51,13 @@
             <strong>Ejemplo:</strong><br>
             <code>cy.visit('https://ejemplo.com');</code>
         </div>
-        
+
         <a href="https://docs.cypress.io/api/cypress-api/cookies" target="_blank">Clear Cookies</a>
         <div class="example">
             <strong>Ejemplo:</strong><br>
             <code>cy.clearCookies();</code>
         </div>
-        
+
         <a href="https://docs.cypress.io/api/cypress-api/reload" target="_blank">Reload</a>
         <div class="example">
             <strong>Ejemplo:</strong><br>
@@ -61,46 +69,61 @@
         <h2>1. SELECTORES</h2>
         <a href="https://docs.cypress.io/api/commands/get" target="_blank">Por identificadores de tu HTML: get</a>
         <div class="example">
-            <strong>Ejemplo:</strong><br>
+            <strong>Ejemplo por ID:</strong><br>
             <code>cy.get('#miElemento');</code>
         </div>
-        
+        <div class="example">
+            <strong>Ejemplo por nombre del elemento:</strong><br>
+            <code>cy.get('input');</code>
+        </div>
+        <div class="example">
+            <strong>Ejemplo por CSS:</strong><br>
+            <code>cy.get('.claseElemento');</code>
+        </div>
+
         <a href="https://docs.cypress.io/api/commands/contains" target="_blank">Por el texto: contains</a>
         <div class="example">
             <strong>Ejemplo:</strong><br>
             <code>cy.contains('Texto del Elemento');</code>
         </div>
-        
+
         <a href="https://docs.cypress.io/api/commands/title" target="_blank">Obtener título de la página: title</a>
         <div class="example">
             <strong>Ejemplo:</strong><br>
             <code>cy.title().should('eq', 'Título Esperado');</code>
         </div>
-        
+
         <a href="https://docs.cypress.io/api/commands/location" target="_blank">Obtener URL de la página: url</a>
         <div class="example">
             <strong>Ejemplo:</strong><br>
             <code>cy.url().should('include', 'ejemplo.com');</code>
         </div>
-        
-        <a href="https://docs.cypress.io/api/commands/parent" target="_blank">Obtener elementos dentro de otros elementos: Parent</a>
+
+        <a href="https://docs.cypress.io/api/commands/parent" target="_blank">Obtener elementos dentro de otros
+            elementos: Parent</a>
         <div class="example">
             <strong>Ejemplo:</strong><br>
             <code>cy.get('.hijo').parent();</code>
         </div>
-        
+
+        <a href="https://docs.cypress.io/api/commands/find" target="_blank">Find</a>
+        <div class="example">
+            <strong>Ejemplo:</strong><br>
+            <code>cy.get('.padre').find('.hijo');</code>
+        </div>
+
         <a href="https://docs.cypress.io/api/commands/first" target="_blank">First</a>
         <div class="example">
             <strong>Ejemplo:</strong><br>
             <code>cy.get('.elemento').first();</code>
         </div>
-        
+
         <a href="https://docs.cypress.io/api/commands/last" target="_blank">Last</a>
         <div class="example">
             <strong>Ejemplo:</strong><br>
             <code>cy.get('.elemento').last();</code>
         </div>
-        
+
         <a href="https://docs.cypress.io/api/commands/filter" target="_blank">Filter</a>
         <div class="example">
             <strong>Ejemplo:</strong><br>
@@ -166,10 +189,48 @@
         <h2>3. ASSERTIONS: VALIDACIONES</h2>
         <a href="https://docs.cypress.io/guides/references/assertions" target="_blank">Assertions</a>
         <div class="example">
-            <strong>Ejemplo:</strong><br>
+            <strong>Ejemplo 1: Verificar que un elemento es visible:</strong><br>
             <code>cy.get('#elemento').should('be.visible');</code>
+        </div>
+        <div class="example">
+            <strong>Ejemplo 2: Verificar que el texto de un elemento es correcto:</strong><br>
+            <code>cy.get('.mensaje').should('have.text', '¡Éxito!');</code>
+        </div>
+        <div class="example">
+            <strong>Ejemplo 3: Verificar que un elemento tiene un valor específico:</strong><br>
+            <code>cy.get('input').should('have.value', 'Texto de prueba');</code>
+        </div>
+        <div class="example">
+            <strong>Ejemplo 4: Verificar que un elemento contiene un texto específico:</strong><br>
+            <code>cy.get('.alert').should('contain', 'Advertencia');</code>
+        </div>
+        <div class="example">
+            <strong>Ejemplo 5: Verificar que un elemento no está visible:</strong><br>
+            <code>cy.get('#oculto').should('not.be.visible');</code>
+        </div>
+        <div class="example">
+            <strong>Ejemplo 6: Verificar que un elemento tiene una clase específica:</strong><br>
+            <code>cy.get('.activo').should('have.class', 'activo');</code>
+        </div>
+        <div class="example">
+            <strong>Ejemplo 7: Verificar que un elemento está habilitado:</strong><br>
+            <code>cy.get('#boton').should('be.enabled');</code>
+        </div>
+        <div class="example">
+            <strong>Ejemplo 8: Verificar que un elemento está deshabilitado:</strong><br>
+            <code>cy.get('#boton').should('be.disabled');</code>
+        </div>
+        <div class="example">
+            <strong>Ejemplo 9: Verificar que un elemento es un enlace:</strong><br>
+            <code>cy.get('a').should('have.attr', 'href', 'https://ejemplo.com');</code>
+        </div>
+        <div class="example">
+            <strong>Ejemplo 10: Verificar que el tamaño de una lista es correcto:</strong><br>
+            <code>cy.get('.lista').children().should('have.length', 3);</code>
         </div>
     </div>
 
+
 </body>
+
 </html>
