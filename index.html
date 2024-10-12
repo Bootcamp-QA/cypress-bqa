@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación de Selectores y Acciones de Cypress</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        a {
+            display: block;
+            margin: 5px 0;
+            color: #007BFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .category {
+            margin-bottom: 30px;
+        }
+        .example {
+            background-color: #e9ecef;
+            padding: 10px;
+            border-left: 5px solid #007BFF;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Documentación de Cypress</h1>
+
+    <div class="category">
+        <h2>0. PÁGINA</h2>
+        <a href="https://docs.cypress.io/api/cypress-api/visit" target="_blank">Visit</a>
+        <div class="example">
+            <strong>Ejemplo:</strong><br>
+            <code>cy.visit('https://ejemplo.com');</code>
+        </div>
+        
+        <a href="https://docs.cypress.io/api/cypress-api/cookies" target="_blank">Clear Cookies</a>
+        <div class="example">
+            <strong>Ejemplo:</strong><br>
+            <code>cy.clearCookies();</code>
+        </div>
+        
+        <a href="https://docs.cypress.io/api/cypress-api/reload" target="_blank">Reload</a>
+        <div class="example">
+            <strong>Ejemplo:</strong><br>
+            <code>cy.reload();</code>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>1. SELECTORES</h2>
+        <a href="https://docs.cypress.io/api/commands/get" target="_blank">Por identificadores de tu HTML: get</a>
+        <div class="example">
+            <strong>Ejemplo:</strong><br>
+            <code>cy.get('#miElemento');</code>
+        </div>
+        
+        <a href="https://docs.cypress.io/api/commands/contains" target="_blank">Por el texto: contains</a>
+        <div class="example">
+            <strong>Ejemplo:</strong><br>
+            <code>cy.contains('Texto del Elemento');</code>
+        </div>
+        
+        <a href="https://docs.cypress.io/api/commands/title" target="_blank">Obtener título de la página: title</a>
+        <div class="example">
+            <strong>Ejemplo:</strong><br>
+            <code>cy.title().should('eq', 'Título Esperado');</code>
+        </div>
+        
+        <a href="https://docs.cypress.io/api/commands/location" target="_blank">Obtener URL de la página: url</a>
+        <div class="example">
+            <strong>Ejemplo:</strong><br>
+            <code>cy.url().should('include', 'ejemplo.com');</code>
+        </div>
+        
+        <a href="https://docs.cypress.io/api/commands/parent" target="_blank">Obtener elementos dentro de otros elementos: Parent</a>
+        <div class="example">
+            <strong>Ejemplo:</strong><br>
+            <code>cy.get('.hijo').parent();</code>
+        </div>
+        
+        <a href="https://docs.cypress.io/api/commands/first" target="_blank">First</a>
+        <div class="example">
+            <strong>Ejemplo:</strong><br>
+            <code>cy.get('.elemento').first();</code>
+        </div>
+        
+        <a href="https://docs.cypress.io/api/commands/last" target="_blank">Last</a>
+        <div class="example">
+            <strong>Ejemplo:</strong><br>
+            <code>cy.get('.elemento').last();</code>
+        </div>
+        
+        <a href="https://docs.cypress.io/api/commands/filter" target="_blank">Filter</a>
+        <div class="example">
+            <strong>Ejemplo:</strong><br>
+            <code>cy.get('.elemento').filter('.activo');</code>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>2. ACCIONES</h2>
+        <h3>HACER CLICK</h3>
+        <a href="https://docs.cypress.io/api/commands/click" target="_blank">Click</a>
+        <div class="example">
+            <strong>Ejemplo:</strong><br>
+            <code>cy.get('#boton').click();</code>
+        </div>
+
+        <a href="https://docs.cypress.io/api/commands/dblclick" target="_blank">Doubleclick</a>
+        <div class="example">
+            <strong>Ejemplo:</strong><br>
+            <code>cy.get('#boton').dblclick();</code>
+        </div>
+
+        <a href="https://docs.cypress.io/api/commands/rightclick" target="_blank">Rightclick</a>
+        <div class="example">
+            <strong>Ejemplo:</strong><br>
+            <code>cy.get('#boton').rightclick();</code>
+        </div>
+
+        <h3>RELLENAR CAMPOS</h3>
+        <a href="https://docs.cypress.io/api/commands/type" target="_blank">Type</a>
+        <div class="example">
+            <strong>Ejemplo:</strong><br>
+            <code>cy.get('#input').type('Texto');</code>
+        </div>
+
+        <a href="https://docs.cypress.io/api/commands/clear" target="_blank">Clear</a>
+        <div class="example">
+            <strong>Ejemplo:</strong><br>
+            <code>cy.get('#input').clear();</code>
+        </div>
+
+        <h3>SELECCIONAR OPCIONES</h3>
+        <a href="https://docs.cypress.io/api/commands/select" target="_blank">Select</a>
+        <div class="example">
+            <strong>Ejemplo:</strong><br>
+            <code>cy.get('select').select('opcion');</code>
+        </div>
+
+        <a href="https://docs.cypress.io/api/commands/check" target="_blank">Check</a>
+        <div class="example">
+            <strong>Ejemplo:</strong><br>
+            <code>cy.get('#checkbox').check();</code>
+        </div>
+
+        <a href="https://docs.cypress.io/api/commands/uncheck" target="_blank">Uncheck</a>
+        <div class="example">
+            <strong>Ejemplo:</strong><br>
+            <code>cy.get('#checkbox').uncheck();</code>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>3. ASSERTIONS: VALIDACIONES</h2>
+        <a href="https://docs.cypress.io/guides/references/assertions" target="_blank">Assertions</a>
+        <div class="example">
+            <strong>Ejemplo:</strong><br>
+            <code>cy.get('#elemento').should('be.visible');</code>
+        </div>
+    </div>
+
+</body>
+</html>
