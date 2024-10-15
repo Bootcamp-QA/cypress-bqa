@@ -67,25 +67,59 @@
 
     <div class="category">
         <h2>1. SELECTORES</h2>
-        <a href="https://docs.cypress.io/api/commands/get" target="_blank">Por identificadores de tu HTML: get</a>
-        <div class="example">
-            <strong>Ejemplo por ID:</strong><br>
-            <code>cy.get('#miElemento');</code>
-        </div>
-        <div class="example">
-            <strong>Ejemplo por nombre del elemento:</strong><br>
-            <code>cy.get('input');</code>
-        </div>
-        <div class="example">
-            <strong>Ejemplo por CSS:</strong><br>
-            <code>cy.get('.claseElemento');</code>
-        </div>
+        <div class="category">
+    <h2>1. SELECTORES</h2>
 
-        <a href="https://docs.cypress.io/api/commands/contains" target="_blank">Por el texto: contains</a>
-        <div class="example">
-            <strong>Ejemplo:</strong><br>
-            <code>cy.contains('Texto del Elemento');</code>
-        </div>
+    <!-- Mejor práctica: uso de data-testid -->
+    <div class="example">
+        <strong>Ejemplo más recomendado (siempre):</strong><br>
+        <code>cy.get('[data-testid="miElemento"]');</code>
+    </div>
+    <p>Usar el atributo <code>data-testid</code> es una excelente práctica, común en frameworks como Cypress y Playwright, ya que es estable y no se ve afectado por cambios en el estilo o la estructura del HTML.</p>
+
+    <!-- También muy recomendado: uso de data-cy -->
+    <div class="example">
+        <strong>Ejemplo recomendado (siempre):</strong><br>
+        <code>cy.get('[data-cy="miElemento"]');</code>
+    </div>
+    <p>Al igual que <code>data-testid</code>, el uso de <code>data-cy</code> asegura que los selectores sean aislados de cambios de estilo o comportamiento.</p>
+
+    <!-- Selectores por texto, dependiendo del caso -->
+    <a href="https://docs.cypress.io/api/commands/contains" target="_blank">Por el texto: contains</a>
+    <div class="example">
+        <strong>Ejemplo (a veces recomendado):</strong><br>
+        <code>cy.contains('Texto del Elemento');</code>
+    </div>
+    <p>Este enfoque depende del contenido del texto, que puede cambiar. Úsalo cuando el texto sea fijo y no es probable que se modifique.</p>
+
+    <!-- Uso moderado: atributos de HTML como 'name' -->
+    <div class="example">
+        <strong>Ejemplo por nombre del atributo (uso moderado):</strong><br>
+        <code>cy.get('[name="miNombre"]');</code>
+    </div>
+    <p>Es útil si el atributo <code>name</code> está bien definido en el HTML, pero puede cambiar dependiendo del diseño de la página o el contexto.</p>
+
+    <!-- Uso restringido: IDs -->
+    <div class="example">
+        <strong>Ejemplo por ID (uso restringido):</strong><br>
+        <code>cy.get('#miElemento');</code>
+    </div>
+    <p>Los IDs pueden cambiar o ser usados por JavaScript, lo que los hace menos fiables que un selector por <code>data-testid</code> o <code>data-cy</code>.</p>
+
+    <!-- Evitar: selectores por clase o por nombre del elemento -->
+    <div class="example">
+        <strong>Ejemplo por clase (evitar):</strong><br>
+        <code>cy.get('.claseElemento');</code>
+    </div>
+    <p>Este enfoque depende del estilo y las clases CSS, que son propensas a cambiar con el tiempo.</p>
+
+    <div class="example">
+        <strong>Ejemplo por nombre del elemento (evitar):</strong><br>
+        <code>cy.get('input');</code>
+    </div>
+    <p>Los selectores basados en nombres de elementos son demasiado genéricos y no proporcionan suficiente contexto, lo que aumenta la probabilidad de seleccionar el elemento incorrecto.</p>
+
+    <!-- Otras opciones útiles -->
 
         <a href="https://docs.cypress.io/api/commands/title" target="_blank">Obtener título de la página: title</a>
         <div class="example">
