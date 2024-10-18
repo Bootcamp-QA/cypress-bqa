@@ -66,7 +66,7 @@
     </div>
 
     <div class="category">
-        <h2>1. SELECTORES</h2>
+        <h2>1. SELECTORES BÁSICOS</h2>
         <a src="https://docs.cypress.io/guides/references/best-practices">Selectores</a>
 
     <!-- Mejor práctica: uso de data-testid -->
@@ -91,7 +91,129 @@
     </div>
     <p>Este enfoque depende del contenido del texto, que puede cambiar. Úsalo cuando el texto sea fijo y no es probable que se modifique.</p>
 
-    <!-- Uso moderado: atributos de HTML como 'name' -->
+
+        <a href="https://docs.cypress.io/api/commands/title" target="_blank">Obtener título de la página: title</a>
+        <div class="example">
+            <strong>Ejemplo:</strong><br>
+            <code>cy.title();</code>
+        </div>
+
+        <a href="https://docs.cypress.io/api/commands/location" target="_blank">Obtener URL de la página: url</a>
+        <div class="example">
+            <strong>Ejemplo:</strong><br>
+            <code>cy.url();</code>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>2. ACCIONES</h2>
+        <h3>HACER CLICK</h3>
+        <a href="https://docs.cypress.io/api/commands/click" target="_blank">Click</a>
+        <div class="example">
+            <strong>Ejemplo:</strong><br>
+            <code>cy.get('IDENTIFICADOR').click();</code>
+        </div>
+
+        <a href="https://docs.cypress.io/api/commands/dblclick" target="_blank">Doubleclick</a>
+        <div class="example">
+            <strong>Ejemplo:</strong><br>
+            <code>cy.get('IDENTIFICADOR').dblclick();</code>
+        </div>
+
+        <a href="https://docs.cypress.io/api/commands/rightclick" target="_blank">Rightclick</a>
+        <div class="example">
+            <strong>Ejemplo:</strong><br>
+            <code>cy.get('IDENTIFICADOR').rightclick();</code>
+        </div>
+
+        
+
+    <div class="category">
+        <h2>ASSERTIONS: VALIDACIONES</h2>
+        <a href="https://docs.cypress.io/guides/references/assertions" target="_blank">Assertions</a>
+        <div class="example">
+            <strong>Ejemplo 1: Verificar que un elemento es visible:</strong><br>
+            <code>cy.get('IDENTIFICADOR').should('be.visible');</code>
+        </div>
+        <div class="example">
+            <strong>Ejemplo 2: Verificar que el texto de un elemento es correcto:</strong><br>
+            <code>cy.get('IDENTIFICADOR').should('have.text', '¡Éxito!');</code>
+        </div>
+        <div class="example">
+            <strong>Ejemplo 3: Verificar que un elemento tiene un valor específico:</strong><br>
+            <code>cy.get('IDENTIFICADOR').should('have.value', 'Texto de prueba');</code>
+        </div>
+        <div class="example">
+            <strong>Ejemplo 4: Verificar que un elemento contiene un texto específico:</strong><br>
+            <code>cy.get('IDENTIFICADOR').should('contain', 'Advertencia');</code>
+        </div>
+        <div class="example">
+            <strong>Ejemplo 5: Verificar que un elemento no está visible:</strong><br>
+            <code>cy.get('IDENTIFICADOR').should('not.be.visible');</code>
+        </div>
+        <div class="example">
+            <strong>Ejemplo 6: Verificar que un elemento tiene una clase específica:</strong><br>
+            <code>cy.get('IDENTIFICADOR').should('have.class', 'activo');</code>
+        </div>
+        <div class="example">
+            <strong>Ejemplo 7: Verificar que un elemento está habilitado:</strong><br>
+            <code>cy.get('IDENTIFICADOR').should('be.enabled');</code>
+        </div>
+        <div class="example">
+            <strong>Ejemplo 8: Verificar que un elemento está deshabilitado:</strong><br>
+            <code>cy.get('IDENTIFICADOR').should('be.disabled');</code>
+        </div>
+        <div class="example">
+            <strong>Ejemplo 9: Verificar que un elemento es un enlace:</strong><br>
+            <code>cy.get('IDENTIFICADOR').should('have.attr', 'href', 'https://ejemplo.com');</code>
+        </div>
+        <div class="example">
+            <strong>Ejemplo 10: Verificar que el tamaño de una lista es correcto:</strong><br>
+            <code>cy.get('IDENTIFICADOR').should('have.length', 3);</code>
+        </div>
+    </div>
+
+        <h3>RELLENAR CAMPOS</h3>
+        <a href="https://docs.cypress.io/api/commands/type" target="_blank">Type</a>
+        <div class="example">
+            <strong>Ejemplo:</strong><br>
+            <code>cy.get('IDENTIFICADOR').type('Texto');</code>
+        </div>
+
+        <a href="https://docs.cypress.io/api/commands/clear" target="_blank">Clear</a>
+        <div class="example">
+            <strong>Ejemplo:</strong><br>
+            <code>cy.get('IDENTIFICADOR').clear();</code>
+        </div>
+
+        <h3>SELECCIONAR OPCIONES</h3>
+        <a href="https://docs.cypress.io/api/commands/select" target="_blank">Select</a>
+        <div class="example">
+            <strong>Ejemplo:</strong><br>
+            <code>cy.get('IDENTIFICADOR').select('opcion');</code>
+        </div>
+
+        <a href="https://docs.cypress.io/api/commands/check" target="_blank">Check</a>
+        <div class="example">
+            <strong>Ejemplo:</strong><br>
+            <code>cy.get('IDENTIFICADOR').check();</code>
+        </div>
+
+        <a href="https://docs.cypress.io/api/commands/uncheck" target="_blank">Uncheck</a>
+        <div class="example">
+            <strong>Ejemplo:</strong><br>
+            <code>cy.get('IDENTIFICADOR').uncheck();</code>
+        </div>
+    </div>
+<div class="category">
+        <h2>0. OTROS SELECTORES</h2>
+        <p>En Cypress, lo ideal es seguir las buenas prácticas al seleccionar elementos de la página para hacer pruebas, y una de las mejores formas es usar atributos personalizados como data-testid o data-cy. Estos atributos están diseñados específicamente para pruebas, lo que garantiza que las selecciones sean robustas y no se vean afectadas por cambios en el diseño o el contenido de la página. Sin embargo, cuando trabajas con una página de terceros o con un sitio que no puedes modificar, es probable que no tengas la posibilidad de agregar estos atributos. En estos casos, debes adaptarte y buscar otras formas de identificar los elementos.
+
+Una opción es usar el texto del elemento a través del comando cy.contains(), que selecciona un elemento en función de su contenido de texto. Esta técnica es útil y fácil de aplicar, pero puede tener limitaciones, ya que el texto puede cambiar con frecuencia o no estar presente en absoluto.
+
+Si no es posible identificar el elemento por texto, puedes utilizar otros selectores. Aquí hay algunas alternativas que puedes considerar, en orden de preferencia cuando no tienes control sobre el código fuente</p>
+    
+     <!-- Uso moderado: atributos de HTML como 'name' -->
     <div class="example">
         <strong>Ejemplo por nombre del atributo (uso moderado):</strong><br>
         <code>cy.get('[name="miNombre"]');</code>
@@ -118,21 +240,7 @@
     </div>
     <p>Los selectores basados en nombres de elementos son demasiado genéricos y no proporcionan suficiente contexto, lo que aumenta la probabilidad de seleccionar el elemento incorrecto.</p>
 
-    <!-- Otras opciones útiles -->
-
-        <a href="https://docs.cypress.io/api/commands/title" target="_blank">Obtener título de la página: title</a>
-        <div class="example">
-            <strong>Ejemplo:</strong><br>
-            <code>cy.title().should('eq', 'Título Esperado');</code>
-        </div>
-
-        <a href="https://docs.cypress.io/api/commands/location" target="_blank">Obtener URL de la página: url</a>
-        <div class="example">
-            <strong>Ejemplo:</strong><br>
-            <code>cy.url().should('include', 'ejemplo.com');</code>
-        </div>
-
-        <a href="https://docs.cypress.io/api/commands/parent" target="_blank">Obtener elementos dentro de otros
+            <a href="https://docs.cypress.io/api/commands/parent" target="_blank">Obtener elementos dentro de otros
             elementos: Parent</a>
         <div class="example">
             <strong>Ejemplo:</strong><br>
@@ -162,106 +270,7 @@
             <strong>Ejemplo:</strong><br>
             <code>cy.get('.elemento').filter('.activo');</code>
         </div>
-    </div>
-
-    <div class="category">
-        <h2>2. ACCIONES</h2>
-        <h3>HACER CLICK</h3>
-        <a href="https://docs.cypress.io/api/commands/click" target="_blank">Click</a>
-        <div class="example">
-            <strong>Ejemplo:</strong><br>
-            <code>cy.get('#boton').click();</code>
-        </div>
-
-        <a href="https://docs.cypress.io/api/commands/dblclick" target="_blank">Doubleclick</a>
-        <div class="example">
-            <strong>Ejemplo:</strong><br>
-            <code>cy.get('#boton').dblclick();</code>
-        </div>
-
-        <a href="https://docs.cypress.io/api/commands/rightclick" target="_blank">Rightclick</a>
-        <div class="example">
-            <strong>Ejemplo:</strong><br>
-            <code>cy.get('#boton').rightclick();</code>
-        </div>
-
-        <h3>RELLENAR CAMPOS</h3>
-        <a href="https://docs.cypress.io/api/commands/type" target="_blank">Type</a>
-        <div class="example">
-            <strong>Ejemplo:</strong><br>
-            <code>cy.get('#input').type('Texto');</code>
-        </div>
-
-        <a href="https://docs.cypress.io/api/commands/clear" target="_blank">Clear</a>
-        <div class="example">
-            <strong>Ejemplo:</strong><br>
-            <code>cy.get('#input').clear();</code>
-        </div>
-
-        <h3>SELECCIONAR OPCIONES</h3>
-        <a href="https://docs.cypress.io/api/commands/select" target="_blank">Select</a>
-        <div class="example">
-            <strong>Ejemplo:</strong><br>
-            <code>cy.get('select').select('opcion');</code>
-        </div>
-
-        <a href="https://docs.cypress.io/api/commands/check" target="_blank">Check</a>
-        <div class="example">
-            <strong>Ejemplo:</strong><br>
-            <code>cy.get('#checkbox').check();</code>
-        </div>
-
-        <a href="https://docs.cypress.io/api/commands/uncheck" target="_blank">Uncheck</a>
-        <div class="example">
-            <strong>Ejemplo:</strong><br>
-            <code>cy.get('#checkbox').uncheck();</code>
-        </div>
-    </div>
-
-    <div class="category">
-        <h2>3. ASSERTIONS: VALIDACIONES</h2>
-        <a href="https://docs.cypress.io/guides/references/assertions" target="_blank">Assertions</a>
-        <div class="example">
-            <strong>Ejemplo 1: Verificar que un elemento es visible:</strong><br>
-            <code>cy.get('#elemento').should('be.visible');</code>
-        </div>
-        <div class="example">
-            <strong>Ejemplo 2: Verificar que el texto de un elemento es correcto:</strong><br>
-            <code>cy.get('.mensaje').should('have.text', '¡Éxito!');</code>
-        </div>
-        <div class="example">
-            <strong>Ejemplo 3: Verificar que un elemento tiene un valor específico:</strong><br>
-            <code>cy.get('input').should('have.value', 'Texto de prueba');</code>
-        </div>
-        <div class="example">
-            <strong>Ejemplo 4: Verificar que un elemento contiene un texto específico:</strong><br>
-            <code>cy.get('.alert').should('contain', 'Advertencia');</code>
-        </div>
-        <div class="example">
-            <strong>Ejemplo 5: Verificar que un elemento no está visible:</strong><br>
-            <code>cy.get('#oculto').should('not.be.visible');</code>
-        </div>
-        <div class="example">
-            <strong>Ejemplo 6: Verificar que un elemento tiene una clase específica:</strong><br>
-            <code>cy.get('.activo').should('have.class', 'activo');</code>
-        </div>
-        <div class="example">
-            <strong>Ejemplo 7: Verificar que un elemento está habilitado:</strong><br>
-            <code>cy.get('#boton').should('be.enabled');</code>
-        </div>
-        <div class="example">
-            <strong>Ejemplo 8: Verificar que un elemento está deshabilitado:</strong><br>
-            <code>cy.get('#boton').should('be.disabled');</code>
-        </div>
-        <div class="example">
-            <strong>Ejemplo 9: Verificar que un elemento es un enlace:</strong><br>
-            <code>cy.get('a').should('have.attr', 'href', 'https://ejemplo.com');</code>
-        </div>
-        <div class="example">
-            <strong>Ejemplo 10: Verificar que el tamaño de una lista es correcto:</strong><br>
-            <code>cy.get('.lista').children().should('have.length', 3);</code>
-        </div>
-    </div>
+</div>
 
 
 </body>
